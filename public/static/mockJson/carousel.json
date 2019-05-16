@@ -1,0 +1,38 @@
+[
+  {
+    "name": "路飞",
+    "src": "./static/img/lufei.png"
+  },
+  {
+    "name": "索隆",
+    "src": "./static/img/suolong.png"
+  },
+  {
+    "name": "山治",
+    "src": "./static/img/shanzhi.png"
+  },
+  {
+    "name": "乌索普",
+    "src": "./static/img/wusuopu.png"
+  },
+  {
+    "name": "娜美",
+    "src": "./static/img/namei.png"
+  },
+  {
+    "name": "罗宾",
+    "src": "./static/img/luobin.png"
+  },
+  {
+    "name": "乔巴",
+    "src": "./static/img/qiaoba.png"
+  },
+  {
+    "name": "弗兰奇",
+    "src": "./static/img/fulanqi.png"
+  },
+  {
+    "name": "布鲁克",
+    "src": "./static/img/buluke.png"
+  }
+]
