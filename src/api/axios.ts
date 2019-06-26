@@ -1,17 +1,25 @@
 import axios from "axios";
-
+// axios.defaults.withCredentials = true;
 // 创建axios实例
 let service: any = {};
 if (process.env.NODE_ENV === "development") {
   service = axios.create({
-    baseURL: "/api", // api的base_url
-    timeout: 50000 // 请求超时时间
+    baseURL: "", // api的base_url
+    timeout: 50000, // 请求超时时间
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
   });
 } else {
   // 生产环境下
   service = axios.create({
-    baseURL: "/api", // api的base_url
-    timeout: 50000 // 请求超时时间
+    baseURL: "", // api的base_url
+    timeout: 50000, // 请求超时时间
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
   });
 }
 

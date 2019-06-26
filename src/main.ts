@@ -21,6 +21,7 @@ Vue.use(api);
 Vue.prototype.$echarts = Echart;
 
 router.beforeEach((to, from, next) => {
+  debugger;
   // 判断路由是否需要登录
   if (to.matched.some(record => record.meta.requireAuth )) {
     if (window.localStorage.token) {

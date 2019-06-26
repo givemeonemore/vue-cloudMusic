@@ -4,10 +4,10 @@
 //  "build:dev": "vue-cli-service build --mode dev",
 //  "build:pre": "vue-cli-service build --mode pre",
 //  结束之后，才能是以下代码生效
-let baseUrl = './api';
+let baseUrl = '';
 switch (process.env.NODE_ENV) {
   case 'dev':
-    baseUrl = 'http://xxxx.com'; // 测试环境url
+    baseUrl = 'http://45.249.246.26:8888/auction-web/rest/'; // 测试环境url
     break;
   case 'pre':
     baseUrl = 'http://xxxx.com'; // 测试环境url

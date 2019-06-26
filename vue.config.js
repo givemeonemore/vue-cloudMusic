@@ -56,18 +56,18 @@ module.exports = {
     port: 3001, // 8080
     https: false,
     hotOnly: false,
-    proxy: {
-      // 设置代理
-      // proxy all requests
-      "/api": {
-        target: "http://localhost:3001",
-        changeOrigin: true,
-        ws: true,
-        pathRewrite: {
-          "^/api": ""
-        }
-      }
-    },
+    // proxy: {
+    //   // 设置代理
+    //   // proxy all requests
+    //   "/": {
+    //     target: "http://45.249.246.26:8888",
+    //     changeOrigin: true,
+    //     ws: true,
+    //     pathRewrite: {
+    //       "^/": ""
+    //     }
+    //   }
+    // },
     before: app => {}
   },
   // 第三方插件配制

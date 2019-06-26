@@ -6,5 +6,9 @@ export default {
   getJson(url: string, params: any) {
     // return 出去一个promise
     return api.get(baseUrl + url, params)
+  },
+  getLogin(url: string, params: any) {
+    // return 出去一个promise
+    return api.get(baseUrl + url, params)
   }
 }

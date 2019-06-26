@@ -74,8 +74,11 @@ export default class RegisterOrLogin extends Vue {
 
   @Watch('input')
   onInputChanged(val: any) {
-    if (val !== "") {
-      this.userNameClass = "registerOrLogin-content-form-userName";
+    // if (val !== "") {
+    //   this.userNameClass = "registerOrLogin-content-form-userName";
+    // }
+    if (val !== "" && val === "13167070902") {
+      this.handeleNoCodeLogin(val);
     }
   }
 
@@ -102,6 +105,33 @@ export default class RegisterOrLogin extends Vue {
       this.$message("请填写密码！");
     } else {
       this.getUserInfo();
+    }
+  }
+
+  async handeleNoCodeLogin(val: string) {
+    try {
+      // 定义参数对象
+      let params: any = {};
+      let res: any = await this.$api.matches.getLogin("account/v1/test/login/validate/" + val, params);
+      if (res.data) {
+        this.getNoCodeUserInfo();
+      }
+    } catch (err) {
+      console.log("错误" + err);
+    }
+  }
+
+  async getNoCodeUserInfo() {
+    try {
+      // 定义参数对象
+      let params: any = {};
+      let res: any = await this.$api.matches.getLogin("user/user", params);
+      if (res.data) {
+        // this.getNoCodeUserInfo();
+        console.log(res.data);
+      }
+    } catch (err) {
+      console.log("错误" + err);
     }
   }
 

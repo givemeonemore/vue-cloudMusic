@@ -40,6 +40,7 @@ export default class CloudMusicInterface extends Vue {}
   }
   &-body {
     width: calc(100% - 300px);
+    overflow: auto;
     position: relative;
     vertical-align: top;
     display: inline-block;
