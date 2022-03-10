@@ -2,30 +2,40 @@
   <div class="registerOrLogin-content">
     <sakura-animate></sakura-animate>
     <div class="registerOrLogin-content-form">
-      <div class="registerOrLogin-content-form-info"> Sign In </div>
+      <div class="registerOrLogin-content-form-info">Sign In</div>
       <div :class="userNameClass">
-        <el-input
-          placeholder="请输入内容"
-          v-model="input">
+        <el-input placeholder="请输入内容" v-model="input">
           <i slot="prefix" class="iconfont icon-wode"></i>
         </el-input>
       </div>
       <div :class="passwordClass">
-        <el-input
-          placeholder="请输入内容"
-          v-model="input2">
+        <el-input placeholder="请输入内容" v-model="input2">
           <i slot="prefix" class="iconfont icon-jiesuo"></i>
         </el-input>
       </div>
       <div class="registerOrLogin-content-form-tips">
         Forgot
-        <span class="registerOrLogin-content-form-tips-userName" @click="getUserName">userName</span>
+        <span
+          class="registerOrLogin-content-form-tips-userName"
+          @click="getUserName"
+          >userName</span
+        >
         or
-        <span class="registerOrLogin-content-form-tips-password" @click="getPassword">Password</span>
+        <span
+          class="registerOrLogin-content-form-tips-password"
+          @click="getPassword"
+          >Password</span
+        >
         ?
       </div>
       <div class="registerOrLogin-content-form-button">
-        <el-button class="registerOrLogin-content-form-button-success" @keyup.enter.native="handleLogIn" @click="handleLogIn" type="success">登录</el-button>
+        <el-button
+          class="registerOrLogin-content-form-button-success"
+          @keyup.enter.native="handleLogIn"
+          @click="handleLogIn"
+          type="success"
+          >登录</el-button
+        >
       </div>
     </div>
   </div>
@@ -34,7 +44,7 @@
 <script lang="ts">
 import { setCookie } from "@/utils/utils";
 import { Component, Vue, Watch } from "vue-property-decorator";
-import SakuraAnimate from "@/components/SakuraAnimate/SakuraAnimate.vue"
+import SakuraAnimate from "@/components/SakuraAnimate/SakuraAnimate.vue";
 @Component({
   components: {
     SakuraAnimate
@@ -53,12 +63,12 @@ export default class RegisterOrLogin extends Vue {
     window.localStorage.clear();
     this.$nextTick(() => {
       let that = this;
-      document.onkeydown = (e) => {
+      document.onkeydown = e => {
         let key = e.keyCode;
         if (key === 13) {
           that.handleLogIn();
         }
-      }
+      };
     });
   }
 
@@ -72,7 +82,7 @@ export default class RegisterOrLogin extends Vue {
     this.$message("哈哈哈，忘记密码了吧！");
   }
 
-  @Watch('input')
+  @Watch("input")
   onInputChanged(val: any) {
     // if (val !== "") {
     //   this.userNameClass = "registerOrLogin-content-form-userName";
@@ -82,7 +92,7 @@ export default class RegisterOrLogin extends Vue {
     }
   }
 
-  @Watch('input2')
+  @Watch("input2")
   onInput2Changed(val: any) {
     if (val !== "") {
       this.passwordClass = "registerOrLogin-content-form-password";
@@ -112,7 +122,10 @@ export default class RegisterOrLogin extends Vue {
     try {
       // 定义参数对象
       let params: any = {};
-      let res: any = await this.$api.matches.getLogin("account/v1/test/login/validate/" + val, params);
+      let res: any = await this.$api.matches.getLogin(
+        "account/v1/test/login/validate/" + val,
+        params
+      );
       if (res.data) {
         this.getNoCodeUserInfo();
       }
@@ -140,24 +153,27 @@ export default class RegisterOrLogin extends Vue {
     try {
       // 定义参数对象
       let params: any = {};
-      let res: any = await this.$api.matches.getJson("static/mockJson/user.json", params);
+      let res: any = await this.$api.matches.getJson(
+        "static/mockJson/user.json",
+        params
+      );
       if (res.data) {
         res.data.forEach((item: any) => {
           if (this.input === item.userName && this.input2 === item.password) {
             this.$message.success("登录成功！");
             // 测试setCookie方法
             // setCookie('userName', res.data.userName, 3600);
-            window.localStorage.setItem('token', "1234");
-            window.localStorage.setItem('userName', item.userName);
-            window.localStorage.setItem('password', item.password);
-            window.localStorage.setItem('avator', item.avator);
+            window.localStorage.setItem("token", "1234");
+            window.localStorage.setItem("userName", item.userName);
+            window.localStorage.setItem("password", item.password);
+            window.localStorage.setItem("avator", item.avator);
             window.sessionStorage.userInfo = item;
             this.$router.push({
-              name:'mainPage',
+              name: "mainPage",
               params: {
                 userInfo: item
               }
-            })
+            });
           }
         });
       }

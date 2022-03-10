@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === "development") {
     timeout: 50000, // 请求超时时间
     withCredentials: true,
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      "Content-Type": "application/x-www-form-urlencoded"
     }
   });
 } else {
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "development") {
     timeout: 50000, // 请求超时时间
     withCredentials: true,
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      "Content-Type": "application/x-www-form-urlencoded"
     }
   });
 }

@@ -1,4 +1,4 @@
-import axios from './axios';
+import axios from "./axios";
 
 let instance = axios;
 
@@ -27,4 +27,4 @@ export default {
     }
     return instance.delete(url, options);
   }
-}
+};

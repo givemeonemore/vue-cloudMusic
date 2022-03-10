@@ -17,7 +17,7 @@ export default new Router({
       component: Login
     },
     {
-      path:"/",
+      path: "/",
       name: "mainPage",
       meta: {
         requireAuth: true // 判断是否需要登录
@@ -27,7 +27,7 @@ export default new Router({
         // 当 /mainPage 匹配成功，
         // echart 会被渲染在 mainPage 的 <router-view> 中
         {
-          path: '/cloudMusic',
+          path: "/cloudMusic",
           name: "cloudMusic",
           meta: {
             navTitle: "音乐界面",
@@ -37,27 +37,31 @@ export default new Router({
           // 之后若是在音乐界面左边的导航菜单下添加新的功能菜单时，则在这个地方添加路由即可
           children: [
             {
-              path: '/cloudMusic/foundMusic',
-              name: 'foundMusic',
+              path: "/cloudMusic/foundMusic",
+              name: "foundMusic",
               meta: {
                 navTitle: "发现音乐",
                 disabled: false // 是否可用
               },
-              component: () => import(/* webpackChunkName: "foundMusic" */ "@/views/FoundMusic/FoundMusic.vue")
+              component: () =>
+                import(
+                  /* webpackChunkName: "foundMusic" */ "@/views/FoundMusic/FoundMusic.vue"
+                )
             },
             {
-              path: '/fm',
-              name: 'fm',
+              path: "/fm",
+              name: "fm",
               meta: {
                 navTitle: "私人FM",
                 disabled: false // 是否可用
               },
-              component: () => import(/* webpackChunkName: "foundMusic" */ "@/views/Table.vue")
+              component: () =>
+                import(/* webpackChunkName: "foundMusic" */ "@/views/Table.vue")
             }
           ]
         },
         {
-          path: '/table',
+          path: "/table",
           name: "table",
           meta: {
             navTitle: "table显示",
@@ -77,7 +81,9 @@ export default new Router({
       path: "/testEchart",
       name: "testEchart",
       component: () =>
-        import(/* webpackChunkName: "testEchart" */ "./views/test/testEchart.vue")
+        import(
+          /* webpackChunkName: "testEchart" */ "./views/test/testEchart.vue"
+        )
     }
   ]
 });
